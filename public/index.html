@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Memescanner UI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; margin: 0; background: #0f172a; color: #e2e8f0; }
+    header { padding: 12px 16px; background: #111827; position: sticky; top:0; z-index:1; }
+    input, select, button { padding: 8px; margin-right: 8px; border-radius: 6px; border: 1px solid #334155; background:#0b1220; color:#e2e8f0; }
+    button.primary { background: #2563eb; border-color:#1d4ed8; }
+    .wrap { padding: 16px; }
+    .stats { margin: 12px 0; font-size: 14px; color:#a3a3a3; }
+    .group { border: 1px solid #334155; border-radius: 10px; margin-bottom: 18px; overflow: hidden; }
+    .group h3 { margin: 0; padding: 8px 12px; background: #0b1220; font-size: 14px; color:#a3a3a3; }
+    .files { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; padding: 10px; background:#0a0f1a; }
+    .card { border:1px solid #334155; border-radius:8px; padding:8px; background:#0f172a; }
+    .thumb { width:100%; max-height:200px; object-fit:contain; background:#111827; }
+    .meta { font-size: 12px; color:#cbd5e1; margin-top:6px; word-break: break-all; }
+    .grid { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  </style>
+</head>
+<body>
+  <header class="grid">
+    <label>Dossier:
+      <input id="dir" size="40" value="." />
+    </label>
+    <label>Garder:
+      <select id="keep">
+        <option value="newest">le plus récent</option>
+        <option value="oldest">le plus ancien</option>
+        <option value="largest">le plus gros</option>
+        <option value="smallest">le plus petit</option>
+        <option value="first">le premier</option>
+      </select>
+    </label>
+    <label>Destination:
+      <input id="dest" size="24" value="./dups" />
+    </label>
+    <label><input type="checkbox" id="preserve" /> Conserver l’arborescence</label>
+    <button id="scan" class="primary">Scanner</button>
+    <button id="dry" title="Simuler le déplacement">Simuler</button>
+    <button id="move" title="Déplacer les doublons">Déplacer</button>
+  </header>
+
+  <div class="wrap">
+    <div id="stats" class="stats">Prêt.</div>
+    <div id="groups"></div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

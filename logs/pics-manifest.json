@@ -1,0 +1,47 @@
+{
+  "root": "C:\\Users\\Utilisateur\\Pictures",
+  "count": 4,
+  "totalBytes": 3359591,
+  "results": [
+    {
+      "path": "Screenshots\\Capture d’écran (1).png",
+      "absPath": "C:\\Users\\Utilisateur\\Pictures\\Screenshots\\Capture d’écran (1).png",
+      "size": 586720,
+      "sizeHuman": "573.0 KB",
+      "mtime": "2022-12-23T18:56:35.830Z",
+      "ext": ".png",
+      "qsig": "f700e0570ca78d009769428095bb71f30a5d06e7",
+      "sha1": null
+    },
+    {
+      "path": "Roblox\\dup_RobloxScreenShot20221226_135121580.png",
+      "absPath": "C:\\Users\\Utilisateur\\Pictures\\Roblox\\dup_RobloxScreenShot20221226_135121580.png",
+      "size": 761703,
+      "sizeHuman": "743.9 KB",
+      "mtime": "2022-12-26T12:51:21.929Z",
+      "ext": ".png",
+      "qsig": "195213b69a0ad7039fe3c2091dbdd0611603b516",
+      "sha1": "7e279bb091d528f9e350545255c9d18ceaffea35"
+    },
+    {
+      "path": "Roblox\\RobloxScreenShot20221226_135121580.png",
+      "absPath": "C:\\Users\\Utilisateur\\Pictures\\Roblox\\RobloxScreenShot20221226_135121580.png",
+      "size": 761703,
+      "sizeHuman": "743.9 KB",
+      "mtime": "2022-12-26T12:51:21.929Z",
+      "ext": ".png",
+      "qsig": "195213b69a0ad7039fe3c2091dbdd0611603b516",
+      "sha1": "7e279bb091d528f9e350545255c9d18ceaffea35"
+    },
+    {
+      "path": "Roblox\\RobloxScreenShot20221227_003514906.png",
+      "absPath": "C:\\Users\\Utilisateur\\Pictures\\Roblox\\RobloxScreenShot20221227_003514906.png",
+      "size": 1249465,
+      "sizeHuman": "1.2 MB",
+      "mtime": "2022-12-26T23:35:16.134Z",
+      "ext": ".png",
+      "qsig": "2d78bb703fc34a124020cfe832fd1a6165b61e27",
+      "sha1": null
+    }
+  ]
+}

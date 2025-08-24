@@ -1,0 +1,27 @@
+{
+  "root": "C:\\Users\\Utilisateur\\Pictures\\memes_test_big",
+  "count": 2,
+  "totalBytes": 1523406,
+  "results": [
+    {
+      "path": "dup_dup_RobloxScreenShot20221226_135121580.png",
+      "absPath": "C:\\Users\\Utilisateur\\Pictures\\memes_test_big\\dup_dup_RobloxScreenShot20221226_135121580.png",
+      "size": 761703,
+      "sizeHuman": "743.9 KB",
+      "mtime": "2022-12-26T12:51:21.929Z",
+      "ext": ".png",
+      "qsig": "195213b69a0ad7039fe3c2091dbdd0611603b516",
+      "sha1": "7e279bb091d528f9e350545255c9d18ceaffea35"
+    },
+    {
+      "path": "dup_RobloxScreenShot20221226_135121580.png",
+      "absPath": "C:\\Users\\Utilisateur\\Pictures\\memes_test_big\\dup_RobloxScreenShot20221226_135121580.png",
+      "size": 761703,
+      "sizeHuman": "743.9 KB",
+      "mtime": "2022-12-26T12:51:21.929Z",
+      "ext": ".png",
+      "qsig": "195213b69a0ad7039fe3c2091dbdd0611603b516",
+      "sha1": "7e279bb091d528f9e350545255c9d18ceaffea35"
+    }
+  ]
+}

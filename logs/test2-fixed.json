@@ -1,0 +1,27 @@
+{
+  "root": "C:\\Users\\Utilisateur\\Pictures\\memes_test",
+  "count": 2,
+  "totalBytes": 28710,
+  "results": [
+    {
+      "path": "20211123-BUPpro-01_djh984.png",
+      "absPath": "C:\\Users\\Utilisateur\\Pictures\\memes_test\\20211123-BUPpro-01_djh984.png",
+      "size": 14355,
+      "sizeHuman": "14.0 KB",
+      "mtime": "2021-12-12T19:03:24.537Z",
+      "ext": ".png",
+      "qsig": "04e0b982585c9b2e542f74a23ec474e2b1243c19",
+      "sha1": "04e0b982585c9b2e542f74a23ec474e2b1243c19"
+    },
+    {
+      "path": "dup_20211123-BUPpro-01_djh984.png",
+      "absPath": "C:\\Users\\Utilisateur\\Pictures\\memes_test\\dup_20211123-BUPpro-01_djh984.png",
+      "size": 14355,
+      "sizeHuman": "14.0 KB",
+      "mtime": "2021-12-12T19:03:24.537Z",
+      "ext": ".png",
+      "qsig": "04e0b982585c9b2e542f74a23ec474e2b1243c19",
+      "sha1": "04e0b982585c9b2e542f74a23ec474e2b1243c19"
+    }
+  ]
+}
