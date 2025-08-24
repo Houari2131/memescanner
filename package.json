@@ -1,9 +1,11 @@
 {
   "name": "memescanner",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "type": "module",
-  "bin": { "memescanner": "./index.js" },
+  "bin": {
+    "memescanner": "./index.js"
+  },
   "scripts": {
     "test": "vitest run",
     "start": "node index.js"
