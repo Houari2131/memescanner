@@ -5,3 +5,32 @@ coverage/
 .env
 .DS_Store
 Thumbs.db
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Caches/outils
+.nyc_output/
+.eslintcache
+.parcel-cache/
+.cache/
+.tmp/
+
+# Build tools / frameworks
+.vite/
+.next/
+.nuxt/
+.svelte-kit/
+.turbo/
+
+# TypeScript
+*.tsbuildinfo
+
+# IDE/OS (selon préférences d’équipe)
+.idea/
+.vscode/
+desktop.ini
