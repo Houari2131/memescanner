@@ -36,3 +36,14 @@ jobs:
             dist/memescanner-win-x64.exe.sha256.txt
             dist/memescanner-win-x64.zip
           retention-days: 30
+          - name: Show package.json fields
+  shell: pwsh
+  run: |
+    $pkg = Get-Content package.json -Raw | ConvertFrom-Json
+    "bin=" + ($pkg.bin | ConvertTo-Json -Compress)
+    "main=" + $pkg.main
+    "type=" + $pkg.type
+- name: List files
+  shell: pwsh
+  run: Get-ChildItem -Recurse | Select-Object FullName
+
