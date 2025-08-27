@@ -1,5 +1,6 @@
-﻿name: build-windows
-on: [workflow_dispatch]  # lancement manuel
+name: build-windows
+on:
+  workflow_dispatch:
 
 jobs:
   build:
@@ -14,8 +15,24 @@ jobs:
       - name: Install deps
         run: npm ci --prefer-offline
 
-      - name: Build exe with pkg (uses package.json.bin)
-        run: npx -y pkg@5.8.1 . -t node20-win-x64 -o .\dist\memescanner-win-x64.exe
+      - name: Show package.json fields
+        shell: pwsh
+        run: |
+          $pkg = Get-Content package.json -Raw | ConvertFrom-Json
+          "bin=" + ($pkg.bin | ConvertTo-Json -Compress)
+          "main=" + $pkg.main
+          "type=" + $pkg.type
+
+      - name: List files
+        shell: pwsh
+        run: Get-ChildItem -Recurse | Select-Object FullName
+
+      - name: Ensure dist folder
+        shell: pwsh
+        run: New-Item -ItemType Directory -Force -Path .\dist | Out-Null
+
+      - name: Build exe with yao-pkg (Node 20)
+        run: npx -y @yao-pkg/pkg@latest . -t node20-win-x64 -o .\dist\memescanner-win-x64.exe
 
       - name: Compute SHA256
         shell: pwsh
@@ -28,7 +45,8 @@ jobs:
         run: Compress-Archive -Path .\dist\memescanner-win-x64.exe, .\dist\memescanner-win-x64.exe.sha256.txt `
                               -DestinationPath .\dist\memescanner-win-x64.zip -Force
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
         with:
           name: memescanner-win-x64
           path: |
@@ -36,14 +54,3 @@ jobs:
             dist/memescanner-win-x64.exe.sha256.txt
             dist/memescanner-win-x64.zip
           retention-days: 30
-          - name: Show package.json fields
-  shell: pwsh
-  run: |
-    $pkg = Get-Content package.json -Raw | ConvertFrom-Json
-    "bin=" + ($pkg.bin | ConvertTo-Json -Compress)
-    "main=" + $pkg.main
-    "type=" + $pkg.type
-- name: List files
-  shell: pwsh
-  run: Get-ChildItem -Recurse | Select-Object FullName
-
