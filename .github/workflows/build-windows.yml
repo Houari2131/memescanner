@@ -6,51 +6,34 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 20
 
       - name: Install deps
-        run: npm ci --prefer-offline
+        run: npm ci
 
-      - name: Show package.json fields
+      - name: Build exe with yao-pkg (Node 20, explicit entry, no bytecode)
         shell: pwsh
         run: |
-          $pkg = Get-Content package.json -Raw | ConvertFrom-Json
-          "bin=" + ($pkg.bin | ConvertTo-Json -Compress)
-          "main=" + $pkg.main
-          "type=" + $pkg.type
+          npx -y @yao-pkg/pkg@latest --version
+          $env:PKG_DEBUG = "1"
+          npx -y @yao-pkg/pkg@latest index.js -t node20-win-x64 --no-bytecode -o .\dist\memescanner-win-x64.exe
 
-      - name: List files
-        shell: pwsh
-        run: Get-ChildItem -Recurse | Select-Object FullName
-
-      - name: Ensure dist folder
-        shell: pwsh
-        run: New-Item -ItemType Directory -Force -Path .\dist | Out-Null
-
-      - name: Build exe with yao-pkg (Node 20)
-        run: npx -y @yao-pkg/pkg@latest . -t node20-win-x64 -o .\dist\memescanner-win-x64.exe
-
-      - name: Compute SHA256
+      - name: List dist
         shell: pwsh
         run: |
-          Get-FileHash -Algorithm SHA256 .\dist\memescanner-win-x64.exe |
-            Tee-Object -FilePath .\dist\memescanner-win-x64.exe.sha256.txt
-
-      - name: Zip artifact (facultatif)
-        shell: pwsh
-        run: Compress-Archive -Path .\dist\memescanner-win-x64.exe, .\dist\memescanner-win-x64.exe.sha256.txt `
-                              -DestinationPath .\dist\memescanner-win-x64.zip -Force
+          Get-ChildItem -Recurse .\dist
+          if (-not (Test-Path .\dist\memescanner-win-x64.exe)) { throw "exe not found" }
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: memescanner-win-x64
-          path: |
-            dist/memescanner-win-x64.exe
-            dist/memescanner-win-x64.exe.sha256.txt
-            dist/memescanner-win-x64.zip
+          path: dist/memescanner-win-x64.exe
           retention-days: 30
+
